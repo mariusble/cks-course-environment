@@ -1,20 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm
 
 set -e
 
-source /etc/lsb-release
-if [ "$DISTRIB_RELEASE" != "20.04" ]; then
-    echo "################################# "
-    echo "############ WARNING ############ "
-    echo "################################# "
-    echo
-    echo "This script only works on Ubuntu 20.04!"
-    echo "You're using: ${DISTRIB_DESCRIPTION}"
-    echo "Better ABORT with Ctrl+C. Or press any key to continue the install"
-    read
-fi
+#source /etc/lsb-release
+#if [ "$DISTRIB_RELEASE" != "Ubuntu 22.04.4 LTS" ]; then
+#    echo "################################# "
+#    echo "############ WARNING ############ "
+#    echo "################################# "
+#    echo
+#    echo "This script only works on Ubuntu 20.04!"
+#    echo "You're using: ${DISTRIB_DESCRIPTION}"
+#    echo "Better ABORT with Ctrl+C. Or press any key to continue the install"
+#    read
+#fi
 
 KUBE_VERSION=1.30.1
 
