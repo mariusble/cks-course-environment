@@ -53,7 +53,7 @@ sed -i '/\sswap\s/ s/^\(.*\)$/#\1/g' /etc/fstab
 echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:testing.list
 curl -L "http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add -
 apt-get update -qq
-apt-get -qq -y install podman cri-tools containers-common
+apt-get -qq -y install podman cri-tools golang-github-containers-common
 rm /etc/apt/sources.list.d/devel:kubic:libcontainers:testing.list
 cat <<EOF | sudo tee /etc/containers/registries.conf
 [registries.search]
@@ -166,7 +166,7 @@ EOF
 systemctl daemon-reload
 systemctl enable containerd
 systemctl restart containerd
-systemctl enable kubelet && systemctl start kubelet
+systemctl enable kubelet
 
 
 ### init k8s
